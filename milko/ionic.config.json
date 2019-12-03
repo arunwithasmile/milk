@@ -1,5 +1,7 @@
 {
   "name": "milko",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
