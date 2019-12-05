@@ -7,37 +7,15 @@
 </ion-header>
 
 <ion-content>
-	<ion-card>
-		<img src="../assets/img/milk.jpg" />
+	<ion-card *ngFor="let item of items">
+		<img src="../assets/img/{{item.imgUrl}}" />
 		<ion-card-header>
-			<ion-card-title>Milk</ion-card-title>
-			<ion-card-subtitle>₹ 60 (500 ml)</ion-card-subtitle>
+			<ion-card-title>{{item.name}}</ion-card-title>
+			<ion-card-subtitle>₹ {{item.price}} ({{item.qty}})</ion-card-subtitle>
 		</ion-card-header>
 		<ion-card-content>
-			Fresh Organic A2 Milk.
-			<ion-button expand="block">Add</ion-button>
-		</ion-card-content>
-	</ion-card>
-	<ion-card>
-		<img src="../assets/img/curd.jpg" />
-		<ion-card-header>
-			<ion-card-title>Curd</ion-card-title>
-			<ion-card-subtitle>₹ 70 (500 ml)</ion-card-subtitle>
-		</ion-card-header>
-		<ion-card-content>
-			Freshly prepared from Organic A2 Milk.
-			<ion-button expand="block">Add</ion-button>
-		</ion-card-content>
-	</ion-card>
-	<ion-card>
-		<img src="../assets/img/ghee.jpg" />
-		<ion-card-header>
-			<ion-card-title>Ghee</ion-card-title>
-			<ion-card-subtitle>₹ 250 (500 gms)</ion-card-subtitle>
-		</ion-card-header>
-		<ion-card-content>
-			Prepared from fresh Organic A2 Milk. No preservatives added.
-			<ion-button expand="block">Add</ion-button>
+			{{item.desc}}
+			<ion-button (click)="addToCart(item)" expand="block">Add</ion-button>
 		</ion-card-content>
 	</ion-card>
 </ion-content>
