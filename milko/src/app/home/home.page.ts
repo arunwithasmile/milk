@@ -31,11 +31,11 @@ export class HomePage {
   }];
 
   constructor(private router: Router) {
-  	//this.router.navigateByUrl('/login');
   }
 
   addToCart(item){
   	this.total += item.price;
   	console.log("Total :" + this.total);
+  	this.router.navigateByUrl('/order');
   }
 }
