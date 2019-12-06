@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -33,9 +33,17 @@ export class HomePage {
   constructor(private router: Router) {
   }
 
+  order: any;
+
   addToCart(item){
+    this.order = item;
   	this.total += item.price;
   	console.log("Total :" + this.total);
-  	this.router.navigateByUrl('/order');
+    let navigationExtras: NavigationExtras = {
+      state: {
+        order: this.order
+      }
+    };
+  	this.router.navigateByUrl('/order', navigationExtras);
   }
 }
