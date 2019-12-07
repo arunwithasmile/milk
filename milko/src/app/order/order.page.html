@@ -7,16 +7,47 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-<form [formGroup]="loginForm" (ngSubmit)="ngOnInit()">
-    <ion-item>
-      <ion-label position="floating">Phone number</ion-label>
-      <ion-input type="text" formControlName="phoneNumber" clear-input></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" formControlName="password" clear-input></ion-input>
-    </ion-item>
-   <ion-button type="submit" [disabled]="!loginForm.valid">Submit</ion-button>
-</form>
+<ion-content class="ion-padding">
+  <div class="ion-text-center">
+    <ion-text>Your items to order</ion-text>
+  </div>
+  <ion-grid>
+    <ion-row *ngFor="let item of order.items">
+      <ion-col size="6">
+        {{item.name}}
+      </ion-col>
+      <ion-col class="ion-text-right">
+        {{item.count}}
+      </ion-col>
+      <ion-col class="ion-text-right">
+        ₹ {{item.price * item.count}}
+      </ion-col>
+    </ion-row>
+    <ion-row mo-total>
+      <ion-col class="ion-text-right ion-align-items-start" size="9">Total</ion-col>
+      <ion-col class="ion-text-right">₹ {{order.total}}</ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="mo-cust-box ion-text-center">
+    <ion-text>Complete your details</ion-text>
+  </div>
+  <form [formGroup]="loginForm" (ngSubmit)="ngOnInit()">
+      <ion-item>
+        <ion-label position="floating">Full Name</ion-label>
+        <ion-input type="text" formControlName="name" clear-input></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Phone number</ion-label>
+        <ion-input type="tel" formControlName="phoneNumber" clear-input></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Address</ion-label>
+        <ion-textarea formControlName="address"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">PIN Code</ion-label>
+        <ion-input type="number" formControlName="pinCode" clear-input></ion-input>
+      </ion-item>
+      <ion-button expand="block" type="submit" [disabled]="!loginForm.valid">Confirm</ion-button>
+  </form>
 </ion-content>

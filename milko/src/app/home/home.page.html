@@ -3,7 +3,7 @@
 		<ion-title>
 			Dairy
 		</ion-title>
-		</ion-toolbar>
+	</ion-toolbar>
 </ion-header>
 
 <ion-content>
@@ -15,7 +15,17 @@
 		</ion-card-header>
 		<ion-card-content>
 			{{item.desc}}
-			<ion-button (click)="addToCart(item)" expand="block">Add</ion-button>
 		</ion-card-content>
+		<div class="mo-add-btns">
+			<ion-chip color="primary" outline class="mo-add" *ngIf="item.count == 0" (click)="add(item)"><ion-label>Add</ion-label></ion-chip>
+			<ion-chip color="primary" outline *ngIf="item.count > 0">
+				<ion-icon (click)="remove(item)" name="remove" color="primary"></ion-icon>
+				<ion-label>&nbsp;{{item.count}}&nbsp;</ion-label>
+				<ion-icon (click)="add(item)" name="add"></ion-icon>
+			</ion-chip>
+		</div>
 	</ion-card>
 </ion-content>
+<ion-footer *ngIf="order.total > 0">
+	<ion-button fill="clear" (click)="goCarting()" expand="block">Continue</ion-button>
+</ion-footer>

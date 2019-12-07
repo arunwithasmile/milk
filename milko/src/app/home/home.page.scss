@@ -1,1 +1,24 @@
+.mo-add-btns {
+	width: 100%;
+	text-align: center;
+	margin-bottom: 10px;
+}
 
+.mo-add-btns > ion-chip {
+	height: 36px;
+	width: 160px;
+	text-align: center;
+}
+
+.mo-add-btns > ion-chip > ion-label {
+	margin: 0 35px;
+	font-weight: 500;
+}
+
+.mo-add-btns > .mo-add > ion-label {
+	margin: 0 auto;
+}
+
+.mo-add > ion-label.md {
+	text-transform: uppercase;
+}
