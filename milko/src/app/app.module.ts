@@ -13,7 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot({
-            mode: 'ios'
+            //mode: 'ios'
         }), AppRoutingModule],
   providers: [
     StatusBar,
